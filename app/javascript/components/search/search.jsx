@@ -5,12 +5,19 @@ class Search extends React.Component{
   constructor(){
     super()
     this.state = {
-      places:[]
+      places:[],
+      query:""
     }
 
   }
-  getPlaces(){
 
+  inputHandler(){
+    let query = event.target.value
+    console.log(query);
+  }
+
+  getPlaces(){
+    console.warn();
     const url = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/output?parameters';
 
     axios.get(url)
@@ -18,16 +25,17 @@ class Search extends React.Component{
 
         const data = response.data
 
-        this.setState({ posts: data })
+        this.setState({ places: data })
 
       }).catch((error)=>{
         console.log(error);
       })
   }
+
   render(){
     return(
       <div>
-        <input onClick ={(event)=>{getPlaces}}/>
+        <input placeholder= "Enter Destination" onChange ={()=>{this.inputHandler()}}/>
       </div>
 
     )
