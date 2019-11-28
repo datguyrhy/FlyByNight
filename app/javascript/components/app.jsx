@@ -25,6 +25,8 @@ class App extends React.Component{
             </div>
             <div className="offset-1 col-4-l  d-flex flex-column mt-5">
               <Search/>
+
+
             </div>
           </div>
 
