@@ -57,8 +57,8 @@ class Search extends React.Component{
   render(){
     return(
       <div>
-        <input className="search-icon" placeholder= "Enter Destination" onChange ={()=>{this.inputHandler()}}/>
-        <button className="btn btn-primary" onClick={()=>this.clickHandler()} ><p>Lets go</p></button>
+        <input className="search-icon" placeholder= "Enter Destination" onChange ={()=>{this.inputHandler()}}/> &ensp;&ensp;
+        <button className="btn btn-secondary" onClick={()=>this.clickHandler()} ><p>Lets go</p></button>
       </div>
 
     )
