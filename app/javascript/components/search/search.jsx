@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchConfirm from "../searchConfirm/searchConfirm"
 import axios from 'axios';
 
 class Search extends React.Component{
@@ -7,11 +8,9 @@ class Search extends React.Component{
     this.state = {
       places:[],
       query: '',
-      input:'',
       clicked:false
     }
   }
-
   inputHandler(){
     const query = event.target.value
     console.log(query);
@@ -23,7 +22,7 @@ class Search extends React.Component{
     this.state.clicked = true
     console.log(this.state.clicked);
       this.fetchSearchResults(this.state.query)
-      console.log(this.state.places);
+
 
   }
   fetchSearchResults(query){
@@ -33,32 +32,25 @@ class Search extends React.Component{
     .then((response)=>{
       const data = response.data
       this.setState({ places: data })
+      console.log(this.state.places.hits);
     })
     .catch((error)=>{
       console.log(error);
     })
   };
-  // getPlaces(){
-  //   console.warn();
-  //   const url = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/output?parameters';
-  //
-  //   axios.get(url)
-  //     .then((response) => {
-  //
-  //       const data = response.data
-  //
-  //       this.setState({ places: data })
-  //
-  //     }).catch((error)=>{
-  //       console.log(error);
-  //     })
-  // }
+
 
   render(){
+    const places = this.state.places.hits ? this.state.places.hits:[];
     return(
       <div>
-        <input className="search-icon" placeholder= "Enter Destination" onChange ={()=>{this.inputHandler()}}/> &ensp;&ensp;
-        <button className="btn btn-secondary" onClick={()=>this.clickHandler()} ><p>Lets go</p></button>
+        <div className="row">
+          <input className="search-icon" placeholder= "Enter Destination" onChange ={()=>{this.inputHandler()}}/> &ensp;&ensp;
+          <button className="btn btn-secondary" onClick={()=>this.clickHandler()} ><p>Lets go</p></button>
+        </div>
+        <div className="row">
+        <SearchConfirm places={places}/>
+        </div>
       </div>
 
     )
