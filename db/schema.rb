@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_11_28_022813) do
     t.string "country"
     t.string "name"
     t.date "date"
+    t.time "time"
     t.string "session"
     t.bigint "plan_id"
     t.datetime "created_at", precision: 6, null: false
