@@ -12,13 +12,10 @@
     <div>
 
 
-     <p>
-       testtttttttttttttttttt
-       </p>
-
 </div>
     <% @plans.each do |plan| %>
       <tr>
+        <td> <%=plan.itinerary_name%></td>
         <td><%= link_to 'Show', plan %></td>
         <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
         <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -30,5 +27,5 @@
 </table>
 
 <br>
-  <%= javascript_pack_tag 'hello_react' %>
+
 <%= link_to 'New Plan', new_plan_path %>

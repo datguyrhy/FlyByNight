@@ -1,10 +1,11 @@
-<h1>New Place</h1>
 
 
-<%= form_with scope: :place, url: places_path, local: true do |form| %>
+
+<%= form_with scope: :place, url: plans_places_path, local: true do |form| %>
   <div class="container">
+    <h1>New Place</h1>
     <div class="row">
-      <div class ="col-12">
+      <div class ="offset-4 col-4 ">
         <p><%= form.label :country %>  </p>
           <%= form.text_field :country %>
         <p><%= form.label :city_name %> </p>
@@ -12,16 +13,15 @@
         <p><%= form.label :date%></p>
           <%= form.date_select :date %>
         <p><%= form.label :time%></p>
-        <%= form.time_select :time%>
+          <%= form.time_select :time%>
         <br/>
-                <%= form.submit %>
+        <br/>
+        <br/>
+          <%= form.submit %>
+          <% end %>
         </div>
 
       </div>
 
-
+      <%= link_to 'Back', plans_places_path %>
     </div>
-  <% end %>
-  </div>
-
-<%= link_to 'Back', places_path %>
