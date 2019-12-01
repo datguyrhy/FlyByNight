@@ -15,7 +15,8 @@ class PlacesController < ApplicationController
 
   # GET /places/new
   def new
-    @place = Place.new
+    @plans = Plan.all
+    # @place = Place.Plan.find(params[:plan_id])
   end
 
   # GET /places/1/edit
@@ -26,10 +27,11 @@ class PlacesController < ApplicationController
   # POST /places.json
   def create
     @place = Place.new(place_params)
-
+    @place.plan_id = params[:plan_id]
     respond_to do |format|
       if @place.save
-        format.html { redirect_to @place, notice: 'Place was successfully created.' }
+
+        format.html { redirect_to plans_places_path(plan_id: @place.plan_id, id: @place.id), notice: 'Place was successfully created.' }
         format.json { render :show, status: :created, location: @place }
       else
         format.html { render :new }
