@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(version: 2019_12_01_153653) do
   create_table "places", force: :cascade do |t|
     t.string "country"
     t.string "name"
-    t.date "date"
-    t.time "time"
+    t.datetime "start_date"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.string "session"
     t.string "notes"
     t.bigint "plan_id"

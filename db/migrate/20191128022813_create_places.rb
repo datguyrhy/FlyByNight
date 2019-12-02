@@ -3,8 +3,9 @@ class CreatePlaces < ActiveRecord::Migration[6.0]
     create_table :places do |t|
       t.string :country
       t.string :name
-      t.date :date
-      t.time :time
+      t.datetime :start_date
+      t.datetime :start_time
+      t.datetime :end_time
       t.string :session
       t.string :notes
       t.references :plan

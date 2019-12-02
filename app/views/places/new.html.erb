@@ -11,10 +11,10 @@
         <p><%= form.label :city_name %> </p>
 
           <%= form.text_field :name %>
-        <p><%= form.label :date%></p>
-          <%= form.date_select :date %>
-        <p><%= form.label :time%></p>
-          <%= form.time_select :time%>
+        <p><%= form.label :start_time%></p>
+          <%= form.datetime_local_field :start_time%>
+          <p><%= form.label :end_time%></p>
+            <%= form.datetime_local_field :end_time%>
         <br/>
         <br/>
         <p><%= form.label :Personal_notes%></p>

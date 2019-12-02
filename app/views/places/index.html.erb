@@ -1,29 +1,49 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Places</h1>
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container-fluid">
+  <div class = "row">
+    <div class ="col-9">
+      <h4><%= month_calendar events: @filteredplace do |date, places| %></h4>
+        <%= date.day %>
 
-  <tbody>
-    <% @places.each do |place| %>
+        <% places.each do |place| %>
+          <div>
+            <%= place.name %> <strong><%=place.start_time.strftime('%H:%M')%></strong>
+            <p>Trip No.<%= place.plan_id%></p>
+          </div>
+        <% end %>
+      <% end %>
+      </div>
+      <div class="col-3 d-flex flex-column">
+        <table style = "border: 1px solid black">
+            <tbody style = "border: 1px solid black">
+            <% @places.each do |place| %>
 
-      <tr>
-        <td> <%=place.country%></td>
-        <td> <%=place.name%></td>
-        <td> <%=place.date%></td>
-        <td><%= link_to 'Show', place %></td>
-        <td><%= link_to 'Edit', edit_place_path(place) %></td>
-        <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+              <tr style = "border: 1px solid black">
+                <td> <%=place.name%></td>
+                </tr>
+                <tr><td> Starts @ <%=place.start_time.strftime('%A, %B %H:%M')%></td></tr>
+                <td> until<%=place.end_time%></td>
+                <tr>
+
+
+                <td><%= link_to 'Delete', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <br/>
+        <%= link_to 'New Place', new_plan_place_path,{method:'get', class:'btn btn-primary'} %>
+        <br/>
+
+        <%= button_to 'Trips', plans_path, {method:'get', class:'btn btn-primary'} %>
+      </div>
+    </div>
+  </div>
+<div class="row">
+
+</div>
+
 
 <br>
-
-<%= link_to 'New Place', new_plan_place_path %>
-<%= button_to 'Trips', plans_path, {method:'get', class:'btn btn-primary'} %>

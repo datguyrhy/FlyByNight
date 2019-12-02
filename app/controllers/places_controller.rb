@@ -7,6 +7,8 @@ class PlacesController < ApplicationController
     p "//////////////////////////////"
     p params[:id]
     @places = Place.where(:plan_id => params[:plan_id])
+    @filteredplace=Place.all
+
   end
 
   # GET /places/1
@@ -60,9 +62,10 @@ class PlacesController < ApplicationController
   # DELETE /places/1
   # DELETE /places/1.json
   def destroy
+
     @place.destroy
     respond_to do |format|
-      format.html { redirect_to places_url, notice: 'Place was successfully destroyed.' }
+      format.html { redirect_to plans_path, notice: 'Place was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -90,6 +93,6 @@ class PlacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
-      params.require(:place).permit(:country, :name, :date, :time,:session,:notes)
+      params.require(:place).permit(:country, :name, :start_date, :start_time,:end_time,:session,:notes)
     end
 end
