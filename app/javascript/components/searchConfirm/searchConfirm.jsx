@@ -17,23 +17,23 @@ class SearchConfirm extends React.Component{
     return(
       <div key={index}>
         <div className="card">
-        <a href="/places">
+        <a href="#">
           <div className="card-body">
           <img src={place.largeImageURL} className="card-img-top"/>
             <h5 className="card-title">Card title</h5>
             <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" className="btn btn-primary">Go somewhere</a>
+
           </div></a>
         </div>
       </div>
         )
   }) : '';
   return(
-    <div className='row'>
-      <div className='col-12'>
-      <div className="col-4 d-flex-inline">
-      {places}
-      </div>
+    <div className='container'>
+      <div classname='row'>
+        <div className='col-12'>
+            {places}
+        </div>
       </div>
     </div>
 

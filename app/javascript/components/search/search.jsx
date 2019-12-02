@@ -8,7 +8,9 @@ class Search extends React.Component{
     this.state = {
       places:[],
       query: '',
-      clicked:false
+      clicked:false,
+      resultTog:false,
+
     }
   }
   inputHandler(){
@@ -25,10 +27,15 @@ class Search extends React.Component{
 
 
   }
+
+  clickHappened(){
+    console.log("wow");
+    this.setState({resultTog:true})
+  }
   fetchSearchResults(query){
 
-    const searchUrl = `https://pixabay.com/api/?key=14443748-cac7f399de258361f6ce6b8da&q=${query}&page=1`;
-    axios.get(searchUrl,query)
+    const searchUrl = `https://pixabay.com/api/?key=14443748-cac7f399de258361f6ce6b8da&q=${query}&page=1&per_page=6`;
+    axios.get(searchUrl)
     .then((response)=>{
       const data = response.data
       this.setState({ places: data })
@@ -42,6 +49,9 @@ class Search extends React.Component{
 
   render(){
     const places = this.state.places.hits ? this.state.places.hits:[];
+    if(this.state.resultTog == true){
+      var f = <SearchConfirm/>
+    }
     return(
       <div>
         <div className="row">
@@ -49,8 +59,10 @@ class Search extends React.Component{
           <button className="btn btn-secondary" onClick={()=>this.clickHandler()} ><p>Lets go</p></button>
         </div>
         <div className="row">
-        <SearchConfirm places={places}/>
+        <button onClick={()=>this.clickHappened()}>Hi</button>
         </div>
+        <SearchConfirm places={places} className="hidden"/>
+        {f}
       </div>
 
     )
