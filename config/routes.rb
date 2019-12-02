@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   get '/plans/:plan_id/places/new' => 'places#new', as: 'new_plan_place'
   post '/plans/:plan_id/places' => 'places#create'
   get '/plans/:plan_id/places/:id' => 'places#show'
+  # get '/ajax/something' => 'places#getAllPlaces'
+  # post '/ajax/something/:id' => 'places#getOnePlace'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

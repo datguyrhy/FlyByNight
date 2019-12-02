@@ -17,7 +17,6 @@
       <tr>
         <td> <%=plan.itinerary_name%></td>
         <td><%= link_to 'Show', plan %></td>
-        <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
         <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

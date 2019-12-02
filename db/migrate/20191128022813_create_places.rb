@@ -6,6 +6,7 @@ class CreatePlaces < ActiveRecord::Migration[6.0]
       t.date :date
       t.time :time
       t.string :session
+      t.string :notes
       t.references :plan
       t.timestamps
     end

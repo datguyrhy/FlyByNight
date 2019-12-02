@@ -8,7 +8,25 @@ class SearchConfirm extends React.Component{
     }
   }
 
+let data = {
+  frm infor:,
 
+
+}
+// vanilla JS Ajax request
+// fetch('/url',{
+//   method: "POST",
+//
+//   body: JSON.stringify(data),
+//   headers:{
+//     'Content-Type': 'application/json'
+//   }
+//
+//
+// }).then(res => res.json())
+// .then(res =>{
+//   console.log(res)
+// })
 
   render(){
   console.log(this.props.places);

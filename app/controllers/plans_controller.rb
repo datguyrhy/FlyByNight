@@ -5,12 +5,14 @@ class PlansController < ApplicationController
   # GET /plans.json
   def index
     @plans = Plan.all
+
   end
 
   # GET /plans/1
   # GET /plans/1.json
   def show
-    @places = Places.all
+    # @places = Places.all
+    @plan = Plan.find(params[:id])
   end
 
   # GET /plans/new

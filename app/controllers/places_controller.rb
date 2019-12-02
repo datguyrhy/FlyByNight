@@ -4,7 +4,9 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    @places = Place.all
+    p "//////////////////////////////"
+    p params[:id]
+    @places = Place.where(:plan_id => params[:plan_id])
   end
 
   # GET /places/1
@@ -64,6 +66,21 @@ class PlacesController < ApplicationController
     end
   end
 
+  # def getAllPlaces
+  #   request.body {}
+  #   result = Place.new(:place => request.body.newPlace)
+  #   result.save
+  #   respond_to do |format|
+  #     format.json { render json: @place.all }
+  #   end
+  # end
+
+  # def getOnePlace
+  #
+  # end
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_place
@@ -72,6 +89,6 @@ class PlacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
-      params.require(:place).permit(:country, :name, :date, :time)
+      params.require(:place).permit(:country, :name, :date, :time,:session,:notes)
     end
 end

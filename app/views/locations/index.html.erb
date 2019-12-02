@@ -2,6 +2,31 @@
 
 <h1>Locations</h1>
 
+<div class='container'>
+  <% @locations.each_slice(3) do |location| %><br>
+    <div class="row">
+      <% location.each do |local| %>
+        <div class='col-md-4'>
+          <div class="card">
+              <img src='<%=local.img_url%>'/>
+
+            <div class="overlay">
+              <div class="title"><strong><%= local.country%></strong></div>
+              <div class ="title"><%= local.location_name%></div>
+              <div class="message"><%=local.description%></div>
+              <br />
+              <%= button_to 'lets go', location_path(local.id), {method: 'get'} %>
+
+            </div>
+
+          </div>
+        </div>
+      <%end%>
+    </div>
+  <%end%>
+</div>
+
+
 <table>
   <thead>
     <tr>
