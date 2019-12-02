@@ -18,6 +18,7 @@ class PlacesController < ApplicationController
   # GET /places/new
   def new
     @plans = Plan.all
+    @locations = Location.all
     # @place = Place.Plan.find(params[:plan_id])
   end
 

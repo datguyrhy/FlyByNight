@@ -8,11 +8,11 @@ class SearchConfirm extends React.Component{
     }
   }
 
-let data = {
-  frm infor:,
-
-
-}
+// let data = {
+//   frm infor:,
+//
+//
+// }
 // vanilla JS Ajax request
 // fetch('/url',{
 //   method: "POST",

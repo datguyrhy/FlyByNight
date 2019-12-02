@@ -28,3 +28,7 @@ Location.create(:country => 'Italy',:location_name => ' Venice, Basilico di San 
 # Location.create(:country => '',:location_name => '' , :description => '' , :img_url => '')
 # Location.create(:country => '',:location_name => '' , :description => '' , :img_url => '')
 # Location.create(:country => '',:location_name => '' , :description => '' , :img_url => '')
+
+Plan.create(:itinerary_name => 'Japan Trip')
+Plan.create(:itinerary_name => 'Greece Trip')
+Plan.create(:itinerary_name => 'Korea Trip')

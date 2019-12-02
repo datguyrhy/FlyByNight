@@ -30,9 +30,12 @@ ActiveRecord::Schema.define(version: 2019_12_01_153653) do
     t.date "date"
     t.time "time"
     t.string "session"
+    t.string "notes"
     t.bigint "plan_id"
+    t.bigint "location_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_places_on_location_id"
     t.index ["plan_id"], name: "index_places_on_plan_id"
   end
 
