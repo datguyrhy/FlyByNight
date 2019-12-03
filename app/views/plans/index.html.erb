@@ -40,7 +40,7 @@
       </thead>
 
       <tbody>
-          <% @plans.each do |plan| %>
+          <% @plan_show.each do |plan| %>
           <tr>
             <td><h6> <%=plan.itinerary_name%></h6></td>
             <td><h6><%= button_to 'See trip', plan, {method:'get' ,class:'btn btn-primary'} %></h6></td>
