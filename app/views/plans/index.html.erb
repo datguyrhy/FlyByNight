@@ -3,14 +3,14 @@
   <div class="container-fluid ">
     <div class="jumbotron">
       <div class ="row">
-        <div class =" col-12 d-flex align-items-start mt-5">
-          <div class ='offset-2 col-3 d-flex flex-column'>
+        <div class =" col-12 d-flex align-items-start" style="margin-top: 150px;">
+          <div class ='offset-1 col-5 d-flex flex-column'>
             <h1 class="display-5">Welcome to FlyByNight</h1>
 
             <p class="lead">Create your travel itineraries in minutes</p>
 
             </div>
-           <div class='offset-3'>
+           <div class='offset-2' style="margin-top: -20px">
              <%= form_with scope: :plan, url: plans_path, local: true do |form| %>
 
                  <div class="row mt-4 d-flex ">
@@ -31,7 +31,7 @@
       </div>
     </div>
 
-  <div class="row">
+  <div class="row ml-1">
     <table>
       <thead>
         <tr>
@@ -56,5 +56,3 @@
 
 </div>
 <br>
-
-<%= link_to 'New Plan', new_plan_path %>
