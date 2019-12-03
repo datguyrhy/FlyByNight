@@ -1,14 +1,19 @@
 <div class="container-fluid"
   <div class="row">
-    <div class = "offset-3 col-6">
+    <div class = "offset-4 col-6">
       <p id="notice"><%= notice %></p>
         <h4>Trip Plan: <%= @plan.itinerary_name%></h4>
         <br />
         <br />
         <br />
         <h4>Time to add some places</h4>
-        <%= button_to 'Add Place', new_plan_place_path(@plan.id),{method:'get', class:'btn btn-primary'} %> |
-        <%= button_to 'View Plan', plans_places_path(@plan.id),{method:'get', class:'btn btn-primary'} %>
+        <div class="row">
+          <div>
+            <%= button_to 'Add Place', new_plan_place_path(@plan.id),{method:'get', class:'btn btn-primary'} %>
+            <br />
+            <%= button_to 'View Plan', plans_places_path(@plan.id),{method:'get', class:'btn btn-primary'} %>
+            </div>
+          </div>
       </div>
     </div>
   </div>

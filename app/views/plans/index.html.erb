@@ -1,30 +1,60 @@
 
   <h4>Fly By Night</h4>
+  <div class="container-fluid ">
+    <div class="jumbotron">
+      <div class ="row">
+        <div class =" col-12 d-flex align-items-start mt-5">
+          <div class ='offset-2 col-3 d-flex flex-column'>
+            <h1 class="display-5">Welcome to FlyByNight</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+            <p class="lead">Create your travel itineraries in minutes</p>
 
-  <tbody>
-    <div>
+            </div>
+           <div class='offset-3'>
+             <%= form_with scope: :plan, url: plans_path, local: true do |form| %>
 
+                 <div class="row mt-4 d-flex ">
+
+                   <div class ="plan-bar justify-content-start">
+                      <div class='row'>
+                        <h4 style="color:#ffeecc; padding-left:11px;">Name your trip</h4>
+                        </div>
+                       <h5><%= form.text_field :itinerary_name %></h5> &ensp;
+
+                      <%= form.submit 'Start planning', :class => 'btn btn-primary start-btn'%>
+                   <% end %>
+                 </div>
+               </div>
+             </div>
+        <hr class="my-4"/>
+        </div>
+      </div>
+    </div>
+
+  <div class="row">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="3">Trips</th>
+        </tr>
+      </thead>
+
+      <tbody>
+          <% @plans.each do |plan| %>
+          <tr>
+            <td><h6> <%=plan.itinerary_name%></h6></td>
+            <td><h6><%= button_to 'See trip', plan, {method:'get' ,class:'btn btn-primary'} %></h6></td>
+            <td><h6><%= button_to 'Delete', plan, method: :delete, class:'btn btn-primary', data: { confirm: 'Are you sure?' } %></h6></td>
+          </tr>
+
+        <% end %>
+
+
+      </tbody>
+    </table>
+    </div>
 
 </div>
-    <% @plans.each do |plan| %>
-      <tr>
-        <td> <%=plan.itinerary_name%></td>
-        <td><%= link_to 'Show', plan %></td>
-        <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-
-
-  </tbody>
-</table>
-
 <br>
 
 <%= link_to 'New Plan', new_plan_path %>

@@ -12,9 +12,14 @@
 
 .start-btn{
 background-color: green;
-border-color: inherit;
+border-color: green;
 }
 
 .start-btn:hover{
-  background-color:red;
+  background-color: #ffd800;
+}
+
+.plan-bar{
+
+  min-height: 100px;
 }
