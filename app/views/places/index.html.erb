@@ -4,10 +4,10 @@
 <div class="container-fluid">
   <div class = "row">
     <div class ="col-9">
-      <h4><%= month_calendar events: @filteredplace do |date, places| %></h4>
+      <h4><%= month_calendar events: @place_show do |date, place_show| %></h4>
         <%= date.day %>
 
-        <% places.each do |place| %>
+        <% place_show.each do |place| %>
           <div>
             <%= place.name %> <strong><%=place.start_time.strftime('%H:%M')%></strong>
             <p>Trip No.<%= place.plan_id%></p>
@@ -18,7 +18,7 @@
       <div class="col-3 d-flex flex-column">
         <table style = "border: 1px solid black">
             <tbody style = "border: 1px solid black">
-            <% @places.each do |place| %>
+            <% @place_show.each do |place| %>
 
               <tr style = "border: 1px solid black">
                 <td> <%=place.name%></td>
@@ -28,7 +28,7 @@
                 <tr>
 
 
-                <td><%= link_to 'Delete', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Delete',plan_place_delete_path(:id => (place.plan_id), :place_id =>(place.id)), method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
             <% end %>
           </tbody>

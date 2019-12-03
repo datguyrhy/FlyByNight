@@ -9,7 +9,7 @@ class CreatePlaces < ActiveRecord::Migration[6.0]
       t.string :session
       t.string :notes
       t.references :plan
-      t.references :location
+      t.references :user
       t.timestamps
     end
   end

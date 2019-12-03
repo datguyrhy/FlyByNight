@@ -6,7 +6,7 @@ class PlacesController < ApplicationController
   def index
     p "//////////////////////////////"
     p params[:id]
-    @places = Place.where(:plan_id => params[:plan_id])
+    @place_show = Place.where(:plan_id => params[:plan_id],:user_id => current_user.id  )
     @filteredplace=Place.all
 
   end
@@ -33,6 +33,9 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(place_params)
     @place.plan_id = params[:plan_id]
+    @place.user_id = current_user.id
+    p @place
+    p "///////////////"
     respond_to do |format|
       if @place.save
 
@@ -62,10 +65,9 @@ class PlacesController < ApplicationController
   # DELETE /places/1
   # DELETE /places/1.json
   def destroy
-
     @place.destroy
     respond_to do |format|
-      format.html { redirect_to plans_path, notice: 'Place was successfully destroyed.' }
+      format.html { redirect_to plans_places_path(:id => (@place.plan_id),id: @place.id), notice: 'Place was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -88,7 +90,7 @@ class PlacesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_place
-      @place = Place.find(params[:id])
+      @place = Place.find(params[:place_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
