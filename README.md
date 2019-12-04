@@ -35,7 +35,7 @@ you will need the following to run this app
 download/clone the repo by accessing your CLI and entering the following
 
 ```
-git clone https://github.com/datguyrhy/MQ.git
+git clone https://github.com/datguyrhy/flyByNight.git
 ```
 
 ### Installing
