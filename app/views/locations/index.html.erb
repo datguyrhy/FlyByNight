@@ -8,15 +8,15 @@
     <% @locations.each_slice(3) do |location| %><br>
       <div class="row">
         <% location.each do |local| %>
-          <div class='col-md-4'>
+          <div class='col-md-4 card-deck'>
             <div class="card">
                 <img class="local-img" src='<%=local.img_url%>'/>
 
               <div class="overlay">
-                <div class="title"><strong><h5><%= local.country%></h5></strong></div>
+                <div class="card-title" style="padding-left:20px; padding-top:10px;"><strong><h5><%= local.country%></h5></strong></div>
                 <hr />
-                <div class ="title"><h5><%= local.location_name%></h5></div>
-                <div class="message"><p>
+                <div class ="card-title" style="padding-left:20px;"><h5><%= local.location_name%></h5></div>
+                <div class="card-text" style="padding-left:20px; padding-right:20px;"><p>
                   <%=local.description%>
                   </p></div>
                 <br />
