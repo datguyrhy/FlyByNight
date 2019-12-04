@@ -15,7 +15,7 @@
  *= require simple_calendar
  */
 
-@import "bootstrap";
-@import "frontpages";
-@import "places";
-@import "locations";
+@import 'bootstrap';
+@import 'frontpages';
+@import 'places';
+@import 'locations';
