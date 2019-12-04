@@ -8,10 +8,10 @@ FlyByNight(FBN) is a simple app that helps users keep track of places that they 
 
 ## Wireframe
 
-![Wireframe](https://github.com/datguyrhy/MQ/blob/master/ERD-and-Wireframe/FBN-WireFrame.png)
+![Wireframe](https://github.com/datguyrhy/flyByNight/blob/master/ERD-and-Wireframe/FBN-WireFrame.png)
 
 ## ERD
-![ERD](https://github.com/datguyrhy/MQ/blob/master/ERD-and-Wireframe/FBN-ERD.png)
+![ERD](https://github.com/datguyrhy/flyByNight/blob/master/ERD-and-Wireframe/FBN-ERD.png)
 
 ## Built With
 
