@@ -15,8 +15,10 @@
               <div class="overlay">
                 <div class="title"><strong><h5><%= local.country%></h5></strong></div>
                 <hr />
-                <div class ="title"><%= local.location_name%></div>
-                <div class="message"><%=local.description%></div>
+                <div class ="title"><h5><%= local.location_name%></h5></div>
+                <div class="message"><p>
+                  <%=local.description%>
+                  </p></div>
                 <br />
                 <div class="d-flex justify-content-center">
                 <%= button_to '    Lets Go    ', plans_path, {method: 'get', class:'btn btn-priamry start-btn'} %>
@@ -30,8 +32,9 @@
         <%end%>
       </div>
     <%end%>
-
-    </div>
+    <br />
+    <%= button_to 'Add Recommendation', new_location_path, {method: 'get', class:'btn btn-priamry start-btn'} %>
+</div>
 
 </div>
 
@@ -39,5 +42,3 @@
 
 
 <br>
-
-<%= link_to 'New Location', new_location_path %>
