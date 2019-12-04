@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :locations
-  root 'plans#index'
+  root 'frontpages#index'
   resources :places
   resources :plans
   resources :frontpages

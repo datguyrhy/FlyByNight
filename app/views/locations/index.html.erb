@@ -1,29 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Locations</h1>
 
-<div class='container'>
-  <% @locations.each_slice(3) do |location| %><br>
-    <div class="row">
-      <% location.each do |local| %>
-        <div class='col-md-4'>
-          <div class="card">
-              <img src='<%=local.img_url%>'/>
 
-            <div class="overlay">
-              <div class="title"><strong><%= local.country%></strong></div>
-              <div class ="title"><%= local.location_name%></div>
-              <div class="message"><%=local.description%></div>
-              <br />
-              <%= button_to 'lets go', location_path(local.id), {method: 'get'} %>
+<div class='container-fluid'>
+  <div class="col-12 d-flex-wrap no-gutters">
+    <h1>Locations</h1>
+    <% @locations.each_slice(3) do |location| %><br>
+      <div class="row">
+        <% location.each do |local| %>
+          <div class='col-md-4'>
+            <div class="card">
+                <img class="local-img" src='<%=local.img_url%>'/>
 
+              <div class="overlay">
+                <div class="title"><strong><h5><%= local.country%></h5></strong></div>
+                <hr />
+                <div class ="title"><%= local.location_name%></div>
+                <div class="message"><%=local.description%></div>
+                <br />
+                <div class="d-flex justify-content-center">
+                <%= button_to '    Lets Go    ', plans_path, {method: 'get', class:'btn btn-priamry start-btn'} %>
+                  </div>
+
+
+              </div>
+            <br />
             </div>
-
           </div>
-        </div>
-      <%end%>
+        <%end%>
+      </div>
+    <%end%>
+
     </div>
-  <%end%>
+
 </div>
 
 

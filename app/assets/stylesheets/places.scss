@@ -32,11 +32,12 @@
   .next-month { }
   .current-month {
     background-color: white;
+    opacity:0.9;
     height: 150px;
-    border: dotted 1px black;
+    border: solid 1px black;
   }
 
   .has-events {
-    background-color: cyan;
+    background-color: #cbf1f5;
   }
 }

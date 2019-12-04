@@ -1,5 +1,38 @@
 <h1>New Location</h1>
 
-<%= render 'form', location: @location %>
 
-<%= link_to 'Back', locations_path %>
+
+<%= form_with scope: :location, url: locations_path, local: true do |form| %>
+  <div class="container">
+
+    <div class="row">
+        <div class ="offset-4 col-6 ">
+          <h3>New Place</h3>
+          <p><%= form.label :Country %>  </p>
+            <%= form.text_field :country ,{:required => true}%>
+            <br  />
+            <br  />
+          <p><%= form.label :Location_name %> </p>
+            <%= form.text_field :location_name ,{:required => true}%>
+            <br  />
+            <br  />
+            <p><%= form.label :Image_url %> </p>
+              <%= form.text_field :img_url ,{:required => true}%>
+          <br/>
+          <p><%= form.label :Description%></p>
+            <%= form.text_area :description,{rows:'10' , cols:'40'}%>
+          <br/>
+            <%= form.submit %>
+            <% end %>
+          </div>
+
+      </div>
+      <div class ="row">
+        <div class=" offset-4 col-12">
+          <br />
+              <%= button_to 'Back', locations_path,{method: 'get',class:'btn btn-primary'} %>
+          </div>
+        </div>
+
+
+    </div>

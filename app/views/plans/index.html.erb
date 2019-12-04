@@ -1,37 +1,39 @@
-
-  <h4>Fly By Night</h4>
   <div class="container-fluid ">
-    <div class="jumbotron">
-      <div class ="row">
-        <div class =" col-12 d-flex align-items-start" style="margin-top: 150px;">
-          <div class ='offset-1 col-5 d-flex flex-column'>
-            <h1 class="display-5">Welcome to FlyByNight</h1>
+    <div class="col-12 d-flex justify-content-center">
+      <div class="jumbotron" id="jumbo-2">
+        <div class ="row">
+          <div class =" col-12 d-flex align-items-start" style="margin-top: 150px;">
+            <div class ='offset-1 col-5 d-flex flex-column'>
+              <h1 class="display-5">FlyByNight</h1>
 
-            <p class="lead">Create your travel itineraries in minutes</p>
+              <p class="lead">Got a last minute plan u wanna create?</p>
 
-            </div>
-           <div class='offset-2' style="margin-top: -20px">
-             <%= form_with scope: :plan, url: plans_path, local: true do |form| %>
+              </div>
+             <div class='offset-2' style="margin-top: -20px">
+               <%= form_with scope: :plan, url: plans_path, local: true do |form| %>
 
-                 <div class="row mt-4 d-flex ">
+                   <div class="row mt-4 d-flex ">
 
-                   <div class ="plan-bar justify-content-start">
-                      <div class='row'>
-                        <h4 style="color:#ffeecc; padding-left:11px;">Name your trip</h4>
-                        </div>
-                       <h5><%= form.text_field :itinerary_name %></h5> &ensp;
+                     <div class ="plan-bar justify-content-start">
+                        <div class='row'>
+                          <h4 style="color:#ffeecc; padding-left:11px;">Name your trip</h4>
+                          </div>
+                         <h5><%= form.text_field :itinerary_name %></h5> &ensp;
 
-                      <%= form.submit 'Start planning', :class => 'btn btn-primary start-btn'%>
-                   <% end %>
+                        <%= form.submit 'Start planning', :class => 'btn btn-primary start-btn'%>
+                     <% end %>
+                   </div>
                  </div>
                </div>
-             </div>
-        <hr class="my-4"/>
+          <hr class="my-4"/>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-  <div class="row ml-1">
+      </div>
+
+
+  <div class="row" style="margin-left:150px;">
     <table>
       <thead>
         <tr>
@@ -43,8 +45,8 @@
           <% @plan_show.each do |plan| %>
           <tr>
             <td><h6> <%=plan.itinerary_name%></h6></td>
-            <td><h6><%= button_to 'See trip', plan, {method:'get' ,class:'btn btn-primary'} %></h6></td>
-            <td><h6><%= button_to 'Delete', plan, method: :delete, class:'btn btn-primary', data: { confirm: 'Are you sure?' } %></h6></td>
+            <td><h6><%= button_to 'See trip', plan, {method:'get' ,class:'btn btn-primary trip-btn2'} %></h6></td>
+            <td><h6><%= button_to 'Delete', plan, method: :delete, class:'btn btn-primary delete-btn', data: { confirm: 'Are you sure?' } %></h6></td>
           </tr>
 
         <% end %>
@@ -55,4 +57,3 @@
     </div>
 
 </div>
-<br>

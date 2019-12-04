@@ -3,30 +3,39 @@
 
 <%= form_with scope: :place, url: plans_places_path, local: true do |form| %>
   <div class="container">
-    <h1>New Place</h1>
+
     <div class="row">
-      <div class ="offset-4 col-6 ">
-        <p><%= form.label :country %>  </p>
-          <%= form.text_field :country %>
-        <p><%= form.label :city_name %> </p>
-
-          <%= form.text_field :name %>
-        <p><%= form.label :start_time%></p>
-          <%= form.datetime_local_field :start_time%>
-          <p><%= form.label :end_time%></p>
-            <%= form.datetime_local_field :end_time%>
-        <br/>
-        <br/>
-        <p><%= form.label :Personal_notes%></p>
-          <%= form.text_area :notes,{rows:'10' , cols:'40'}%>
-
-
-        <br/>
-          <%= form.submit %>
-          <% end %>
-        </div>
+        <div class ="offset-4 col-6 ">
+          <h3>New Place</h3>
+          <p><%= form.label :country %>  </p>
+            <%= form.text_field :country ,{:required => true}%>
+            <br  />
+            <br  />
+          <p><%= form.label :city_name %> </p>
+            <%= form.text_field :name ,{:required => true}%>
+            <br  />
+            <br  />
+          <p><%= form.label :When%></p>
+            <%= form.datetime_field :start_time%>
+            <br  /><br  />
+            <p><%= form.label :Til%></p>
+              <%= form.datetime_local_field :end_time%>
+          <br/>
+          <br/>
+          <p><%= form.label :Personal_notes%></p>
+            <%= form.text_area :notes,{rows:'10' , cols:'40'}%>
+          <br/>
+            <%= form.submit 'Add New place', :class => 'btn btn-primary start-btn' %>
+            <% end %>
+          </div>
 
       </div>
+      <div class ="row">
+        <div class=" offset-4 col-12">
+          <br />
+              <%= button_to 'To Calendar', plans_places_path,{method: 'get',class:'btn btn-primary trip-btn2'} %>
+          </div>
+        </div>
 
-      <%= button_to 'Back', plans_places_path,{method: 'get',class:'btn btn-primary'} %>
+
     </div>

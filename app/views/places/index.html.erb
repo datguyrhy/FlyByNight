@@ -6,38 +6,41 @@
     <div class ="col-9">
       <h4><%= month_calendar events: @place_show do |date, place_show| %></h4>
         <%= date.day %>
-
         <% place_show.each do |place| %>
           <div>
-            <%= place.name %> <strong><%=place.start_time.strftime('%H:%M')%></strong>
-            <p>Trip No.<%= place.plan_id%></p>
+            <%= place.name %>
+             <strong><%=place.start_time.strftime('%H:%M')%></strong>
+
           </div>
         <% end %>
       <% end %>
       </div>
       <div class="col-3 d-flex flex-column">
-        <table style = "border: 1px solid black">
-            <tbody style = "border: 1px solid black">
+        <table style = "border: 1px solid white">
+            <tbody style = "border: 1px solid white">
             <% @place_show.each do |place| %>
 
-              <tr style = "border: 1px solid black">
-                <td> <%=place.name%></td>
+              <tr style = "border: 1px solid white">
+                <td class="notes"> <%=place.name%></td>
                 </tr>
-                <tr><td> Starts @ <%=place.start_time.strftime('%A, %B %H:%M')%></td></tr>
-                <td> until<%=place.end_time%></td>
+                <tr>
+                  <td class="notes"> Starts @ <%=place.start_time.strftime('%H:%M')%></td>
+                </tr>
+                <td class="notes"> <%= place.notes%></td>
                 <tr>
 
 
-                <td><%= link_to 'Delete',plan_place_delete_path(:id => (place.plan_id), :place_id =>(place.id)), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td class="notes"><%= link_to 'Delete',plan_place_delete_path(:id => (place.plan_id), :place_id =>(place.id)), method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
             <% end %>
           </tbody>
         </table>
         <br/>
-        <%= link_to 'New Place', new_plan_place_path,{method:'get', class:'btn btn-primary'} %>
+        <p>   <%= link_to 'Add Place', new_plan_place_path,{method:'get', class:'btn btn-primary trip-btn'} %></p>
+        <%= button_to 'Trips', plans_path, {method:'get', class:'btn btn-primary trip-btn'} %>
         <br/>
 
-        <%= button_to 'Trips', plans_path, {method:'get', class:'btn btn-primary'} %>
+
       </div>
     </div>
   </div>

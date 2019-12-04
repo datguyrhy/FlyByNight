@@ -12,8 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require simple_calendar
  */
 
 @import "bootstrap";
 @import "frontpages";
 @import "places";
+@import "locations";
