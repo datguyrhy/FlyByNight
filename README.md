@@ -30,6 +30,7 @@ you will need the following to run this app
 ```
 - Ruby on Rails
 - postgresSQL
+- yarn
 
 ```
 download/clone the repo by accessing your CLI and entering the following
@@ -48,9 +49,18 @@ install the modules and dependencies by entering the following into your termina
 bundle install
 ```
 
-This will create the tables and seed them within your psql database
+In case you run into file version issues use yarn to rectify them
+
+```
+yarn install --check-files
+```
+
+
+
 
 ## Part 1 - Database / Schema / Models
+
+This will create the tables and seed them within your psql database
 
 ### Create the database
 Within this repo run the following to create the database
